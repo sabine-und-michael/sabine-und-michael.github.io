@@ -1,12 +1,78 @@
 <!DOCTYPE html>
-<html>
+<html lang="de-DE">
     <head>
         <title>Sabine und Michael heiraten!</title>
+        <meta charset="utf-8">
         <link rel="stylesheet" href="website.css">
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
 
         <script>
+            function submit_guest_info() 
+            {
+                if(!check_family_name())
+                {
+                    return 0;
+                }
+                
+                var family   = document.getElementById("guest-info-family").value;
+                var adults   = document.getElementById("guest-info-adults").value;
+                var children = document.getElementById("guest-info-children").value;
+                var babies   = document.getElementById("guest-info-babies").value;
+
+                var text = "Anmeldung zu eurer Hochzeit\n\n";
+                text += "Wer sind wir: " + family + "\n";
+                text += adults   + " Erwachsene\n";
+                text += children + " Kinder\n";
+                text += babies   + " Kleinkinder\n";
+
+                //alert(text);
+                window.location.href =  'mailto:' + get_address() + '?subject=' + "Hochzeit" + '&body=' + encodeURI(text);
+            }
+
+            function decline()
+            {
+                if(!check_family_name())
+                {
+                    return 0;
+                }
+                
+                var family   = document.getElementById("guest-info-family").value;
+                
+                var text = "Wir können leider nicht zu eurer Hochzeit kommen.\n\n";
+                text += "Wer sind wir: " + family + "\n";
+
+                //alert(text);
+                window.location.href =  'mailto:' + get_address() + '?subject=' + "Hochzeit" + '&body=' + encodeURI(text);
+            }
+
+            function check_family_name()
+            {
+                var family = document.getElementById("guest-info-family").value;
+                if(!family || family.trim().length === 0)
+                {
+                    alert("Bitte einen Familiennamen eintragen.");
+                    return false;
+                }
+
+                return true;
+            }
+
+            function get_address()
+            {
+                text = "sabine";
+                text += ".";
+                text += "und";
+                text += ".";
+                text += "michael"
+                text += "@";
+                text += "outlook";
+                text += ".";
+                text += "com";
+                return text;
+            }
+
             var countDownDate = new Date(2020, 5, 6, 13, 0).getTime();
             
             var x = setInterval(function() 
@@ -85,10 +151,15 @@
             
             <section id="anmeldung">
                 <h2>Meldet Euch an!</h2>
-                Wir kommen!<br>
-                <button>Anmelden</button>
                 <br>
-                (Diese Funktion ist noch nicht fertig...)
+                Wer seid ihr:                  <input type="text"   id="guest-info-family" /><br><br>
+                Anzahl Erwachsene:             <input type="number" id="guest-info-adults"   min="1" value="1" step="1"><br>
+                Anzahl Kinder (4 - 12 Jahre):  <input type="number" id="guest-info-children" min="0" value="0" step="1"><br>
+                Anzahl Kinder (unter 4 Jahre): <input type="number" id="guest-info-babies"   min="0" value="0" step="1"><br>
+                <br>
+                <button onclick="submit_guest_info()">Per Mail anmelden</button>
+                <br>
+                <button id="decline-button" onclick="decline()">Per Mail abmelden</button>
             </section>
 
 
