@@ -4,6 +4,8 @@
     --color-tertiary: rgba(85, 107, 47, 0.055);
     --color-shade: #B8E0AB;
     --color-button: rgb(94, 177, 67);
+    --color-red: rgb(212, 64, 64);
+    --color-light-red: rgb(172, 108, 113);
 
     --default-font-size: 1.3em;
     --button-font-size: 2.0em;
@@ -13,9 +15,10 @@
 
 #countdown-timer {
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.2em;
     background-color: var(--color-primary);
     padding: 10px;
+    font-family: 'Roboto Mono', monospace;
 }
 
 #header-text {
@@ -83,6 +86,18 @@ button:hover {
     border: 2px solid var(--color-button);
     background-color: var(--color-secondary);
     color: var(--color-button);
+}
+
+#decline-button {
+    border: 2px solid var(--color-red);
+    background: var(--color-red);
+    color: var(--color-secondary);
+}
+
+#decline-button:hover {
+    border: 2px solid var(--color-red);
+    background-color: var(--color-secondary);
+    color: var(--color-red);
 }
 
 section {
