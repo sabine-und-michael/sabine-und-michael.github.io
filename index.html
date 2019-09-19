@@ -7,11 +7,53 @@
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
-
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+        
         <script>
+            function check_password() 
+            {
+                var password = document.getElementById("guest-info-password").value;
+                var expectedHash = "494aa366898d153ae77ad285accad1d6edd5760af74a37c247cfef46176dd3c9";
+                var actualHash = CryptoJS.SHA256(password).toString();
+                
+                if(actualHash === expectedHash)
+                {
+                    return true;
+                }
+                else
+                {
+                    alert("Falsches Kennwort");
+                    return false;
+                }
+            }
+
+            function get_address()
+            {
+                try
+                {
+                    var password = document.getElementById("guest-info-password").value;
+                    var encrypted = "U2FsdGVkX19J9cjunLCwWEEfDIUwOwuShQl+hhRk68R8na1Exkp3FCAdq9YTDJ4v";
+                    var decrypted = CryptoJS.AES.decrypt(encrypted, password).toString(CryptoJS.enc.Utf8);
+                    return decrypted;
+                }
+                catch(err)
+                {
+                    alert("Konnte Ziel EMail-Adresse nicht bestimmen");
+                    console.log(err);
+                    return "";
+                }
+            }
+
             function submit_guest_info() 
             {
                 if(!check_family_name())
+                {
+                    return 0;
+                }
+
+                if(!check_password())
                 {
                     return 0;
                 }
@@ -27,13 +69,17 @@
                 text += children + " Kinder\n";
                 text += babies   + " Kleinkinder\n";
 
-                //alert(text);
-                window.location.href =  'mailto:' + get_address() + '?subject=' + "Hochzeit" + '&body=' + encodeURI(text);
+                window.location.href = 'mailto:' + get_address() + '?subject=' + "Hochzeit" + '&body=' + encodeURI(text);
             }
 
             function decline()
             {
                 if(!check_family_name())
+                {
+                    return 0;
+                }
+
+                if(!check_password())
                 {
                     return 0;
                 }
@@ -57,20 +103,6 @@
                 }
 
                 return true;
-            }
-
-            function get_address()
-            {
-                text = "sabine";
-                text += ".";
-                text += "und";
-                text += ".";
-                text += "michael"
-                text += "@";
-                text += "outlook";
-                text += ".";
-                text += "com";
-                return text;
             }
 
             var countDownDate = new Date(2020, 5, 6, 13, 0).getTime();
@@ -152,7 +184,8 @@
             <section id="anmeldung">
                 <h2>Meldet Euch an!</h2>
                 <br>
-                Wer seid ihr:                  <input type="text"   id="guest-info-family" /><br><br>
+                Wer seid ihr:                  <input type="text"   id="guest-info-family" /><br>
+                Unser Kennwort:                <input type="text"   id="guest-info-password" /><br><br>
                 Anzahl Erwachsene:             <input type="number" id="guest-info-adults"   min="1" value="1" step="1"><br>
                 Anzahl Kinder (4 - 12 Jahre):  <input type="number" id="guest-info-children" min="0" value="0" step="1"><br>
                 Anzahl Kinder (unter 4 Jahre): <input type="number" id="guest-info-babies"   min="0" value="0" step="1"><br>
