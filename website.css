@@ -162,6 +162,34 @@ nav {
     text-decoration: none;
 }
 
+.timeline-image {
+    width:  10%;
+    height: 10%;
+    min-width:  50px;
+    min-height: 50px;
+}
+
+table {
+    width: 90%
+}
+
+tr {
+    margin-top: 500px;
+    margin-bottom: 10px;
+}
+
+.column-event {
+    text-align: left;
+}
+
+.column-time {
+    text-align: center;
+}
+
+.column-image {
+    text-align: center;
+}
+
 #info-list {
     list-style-type: none;
     margin: none;
