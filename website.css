@@ -7,15 +7,15 @@
     --color-red: rgb(212, 64, 64);
     --color-light-red: rgb(172, 108, 113);
 
-    --default-font-size: 1.3em;
-    --button-font-size: 2.0em;
+    --default-font-size: 1.1rem;
+    --button-font-size: 2rem;
 
     --border-radius: 5px;
 }
 
 #countdown-timer {
     text-align: center;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     background-color: var(--color-primary);
     padding: 10px;
     font-family: 'Roboto Mono', monospace;
@@ -28,7 +28,7 @@
     text-align:center;
     display: inline-block;
     margin: 25px;
-    font-size: 4.5em;
+    font-size: 4.5rem;
 }
 
 #header-subtitle {
@@ -38,7 +38,7 @@
     text-align:center;
     display: inline-block;
     margin: 25px;
-    font-size: 3.5em;
+    font-size: 3.5rem;
 }
 
 #header-line {
@@ -75,7 +75,7 @@ button {
     margin: 5px;
     text-align: center;
     border-radius: var(--border-radius);
-    font-size: var(--default-font-size);
+    font-size: var(--button-font-size);
     font-weight: bold;
 }
 
@@ -210,6 +210,7 @@ tr {
 .register input {
     width: 80%;
     text-align: right;
+    font-size: var(--default-font-size);
 }
 
 #info-list {
