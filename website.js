@@ -16,6 +16,39 @@ function check_password()
     }
 }
 
+function check_details()
+{
+    var family = document.getElementById("guest-info-family").value;
+    if(!family || family.trim().length === 0)
+    {
+        console.log("family name is empty");
+        return false;
+    }
+
+    var personCounts = ["guest-info-adults", "guest-info-children", "guest-info-babies"];
+    try
+    {
+        for (index = 0; index < personCounts.length; index++) 
+        {
+            var valueAsString = document.getElementById(personCounts[index]).value;
+            if((valueAsString.trim().length === 0) || 
+               (!Number.isInteger(Number(valueAsString))) || 
+               (parseInt(valueAsString, 10) < 0))
+            {
+                console.log("invalid number in field " + personCounts[index] + ": " + valueAsString);
+                return false;
+            }
+        }
+    }
+    catch(err)
+    {
+        console.log(err);
+        return false;
+    }
+
+    return true;
+}
+
 function get_address()
 {
     try
@@ -48,57 +81,25 @@ function submit_guest_info()
         text += children + " Kinder\n";
         text += babies   + " Kleinkinder\n";
     
-        window.location.href = 'mailto:' + get_address() + '?subject=' + "Hochzeit" + '&body=' + encodeURI(text);
+        var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURI(text);
+        console.log(mailto);
+        window.location.href = mailto;
     }
 }
 
 function decline()
 {
-    if(!check_family_name())
+    if(check_details() && check_password())
     {
-        return 0;
-    }
-
-    if(!check_password())
-    {
-        return 0;
-    }
+        var family = document.getElementById("guest-info-family").value;
     
-    var family = document.getElementById("guest-info-family").value;
+        var text = "Wir können leider nicht zu eurer Hochzeit kommen.\n\n";
+        text += "Wer sind wir: " + family + "\n";
     
-    var text = "Wir können leider nicht zu eurer Hochzeit kommen.\n\n";
-    text += "Wer sind wir: " + family + "\n";
-
-    window.location.href =  'mailto:' + get_address() + '?subject=' + "Hochzeit" + '&body=' + encodeURI(text);
-}
-
-function check_details()
-{
-    var family = document.getElementById("guest-info-family").value;
-    if(!family || family.trim().length === 0)
-    {
-        return false;
+        var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURI(text);
+        console.log(mailto);
+        window.location.href = mailto;
     }
-
-    var personCounts = ["guest-info-adults", "guest-info-children", "guest-info-babies"];
-    try
-    {
-        for (index = 0; index < personCounts.length; index++) 
-        {
-            var valueAsString = document.getElementById(personCounts[index]).value;
-            if(!Number.isInteger(valueAsString) || (parseInt(valueAsString, 10) < 0))
-            {
-                return false;
-            }
-        }
-    }
-    catch(err)
-    {
-        console.log(err);
-        return false;
-    }
-
-    return true;
 }
 
 var x = setInterval(function() 

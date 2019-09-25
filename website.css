@@ -71,9 +71,6 @@ main {
 }
 
 button {
-    border: 2px solid var(--color-button);
-    background: var(--color-button);
-    color: var(--color-secondary);
     padding: 12px 28px;
     margin: 5px;
     text-align: center;
@@ -82,19 +79,25 @@ button {
     font-weight: bold;
 }
 
-button:hover {
+.positive-button {
+    border: 2px solid var(--color-button);
+    background: var(--color-button);
+    color: var(--color-secondary);
+}
+
+.positive-button:hover {
     border: 2px solid var(--color-button);
     background-color: var(--color-secondary);
     color: var(--color-button);
 }
 
-#decline-button {
+.negative-button {
     border: 2px solid var(--color-red);
     background: var(--color-red);
     color: var(--color-secondary);
 }
 
-#decline-button:hover {
+.negative-button:hover {
     border: 2px solid var(--color-red);
     background-color: var(--color-secondary);
     color: var(--color-red);
@@ -108,6 +111,10 @@ section {
 section h2 {
     background-color: var(--color-tertiary);
     padding: 0px 10px;
+}
+
+section div {
+    text-align: left;
 }
 
 .map-view {
@@ -190,6 +197,21 @@ tr {
     text-align: center;
 }
 
+.register td {
+    width: 50%;
+}
+
+.register div {
+    margin: 10px;
+    min-width: 200px;
+    text-align: right;
+}
+
+.register input {
+    width: 80%;
+    text-align: right;
+}
+
 #info-list {
     list-style-type: none;
     margin: none;
@@ -219,3 +241,4 @@ tr {
     width: 50%;
     text-align: left;
 }
+
