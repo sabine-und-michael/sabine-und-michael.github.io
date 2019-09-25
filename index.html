@@ -12,6 +12,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
         <script src="website.js"></script>
     </head>
+
     <body>
         <header>
             <div id="header-text">
@@ -37,7 +38,6 @@
                 </ul>
             </nav>
 
-
             <section id="info">
                 <ul id="info-list">
                     <li class="info-list-item">
@@ -47,8 +47,6 @@
                     <li class="info-list-item" id="info-list-text">
                         Auf dieser Seite erhaltet Ihr die neuesten Infos rund um unsere Hochzeit.<br>
                         Sobald sich etwas Neues ergibt, werden wir Euch hier mit Updates versorgen, schaut also gerne mal wieder vorbei.<br>
-                        Ihr könnt euch außerdem die Anfahrtsbeschreibungen für die Kirche und unsere Location ansehen.<br>
-                        Später werdet Ihr euch auch zur Feier anmelden können!<br>
                     </li>
                 </ul>
             </section>
@@ -60,82 +58,45 @@
             <section id="anmeldung">
                 <h2>Meldet Euch an!</h2>
                 <br>
-                <form>
-                    Wer seid ihr:                  <input required type="text"   id="guest-info-family" /><br>
-                    Unser Kennwort:                <input required type="text"   id="guest-info-password" /><br><br>
-                    Anzahl Erwachsene:             <input required type="number" id="guest-info-adults"   min="1" value="1" step="1"><br>
-                    Anzahl Kinder (4 - 12 Jahre):  <input required type="number" id="guest-info-children" min="0" value="0" step="1"><br>
-                    Anzahl Kinder (unter 4 Jahre): <input required type="number" id="guest-info-babies"   min="0" value="0" step="1"><br>
+
+                <form class="register">
+                    <table>
+                        <tr>
+                            <td><div>Wer seid ihr:</div></td>
+                            <td><input required type="text" id="guest-info-family" /></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><div>Unser Kennwort:</div></td>
+                            <td><input required type="text" id="guest-info-password" /></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><div>Anzahl Erwachsene:</div></td>
+                            <td><input required type="number" id="guest-info-adults" min="1" value="1" step="1"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><div>Anzahl Kinder<br>(4 - 12 Jahre):</div></td>
+                            <td><input required type="number" id="guest-info-children" min="0" value="0" step="1"></td>
+                        </tr>
+                        
+                        <tr>
+                            <td><div>Anzahl Kinder<br>(unter 4 Jahre):</div></td>
+                            <td><input required type="number" id="guest-info-babies" min="0" value="0" step="1"></td>
+                        </tr>
+                    </table> 
+
                     <br>
-                    <button onclick="submit_guest_info()">Per Mail anmelden</button>
+                    <button class="positive-button" onclick="submit_guest_info()">Per Mail anmelden</button>
                     <br>
+                    <button class="negative-button" onclick="decline()">Per Mail abmelden</button>
                 </form>
-                <button id="decline-button" onclick="decline()">Per Mail abmelden</button>
             </section>
 
 
             <section id="timeline">
                 <h2>Ablaufplan</h2>
-                Wann passiert was?<br>
-                
-                <!-- <ul class="timeline-list">
-                    <li class="timeline-item"><img class="timeline-image" src="img/icon_church.svg"></li>
-                    <li class="timeline-item"><img class="timeline-image" src="img/icon_drink.svg"></li>
-                    <li class="timeline-item"><img class="timeline-image" src="img/icon_cup.svg"></li>
-                    <li class="timeline-item"><img class="timeline-image" src="img/icon_dinner.svg"></li>
-                    <li class="timeline-item"><img class="timeline-image" src="img/icon_party.svg"></li>
-                    <li class="timeline-item"><img class="timeline-image" src="img/icon_dinner.svg"></li>
-                </ul> -->
-
-                <!-- <ul class="timeline-list">
-                    <li class="timeline-item">
-                        <ul class="timeline-item-list">
-                            <li>13:00</li>
-                            <li><img class="timeline-image" src="img/icon_church.svg"></li>
-                            <li>Trauung</li>
-                        </ul>   
-                    </li>
-
-                    <li class="timeline-item">
-                        <ul class="timeline-item-list">
-                            <li>14:00</li>
-                            <li><img class="timeline-image" src="img/icon_drink.svg"></li>
-                            <li>Sektempfang</li>
-                        </ul>   
-                    </li>
-
-                    <li class="timeline-item">
-                        <ul class="timeline-item-list">
-                            <li>15:00</li>
-                            <li><img class="timeline-image" src="img/icon_cup.svg"></li>
-                            <li>Kaffee und Kuchen</li>
-                        </ul>   
-                    </li>
-
-                    <li class="timeline-item">
-                        <ul class="timeline-item-list">
-                            <li>18:00</li>
-                            <li><img class="timeline-image" src="img/icon_dinner.svg"></li>
-                            <li>Abendessen</li>
-                        </ul>   
-                    </li>
-
-                    <li class="timeline-item">
-                        <ul class="timeline-item-list">
-                            <li>20:00</li>
-                            <li><img class="timeline-image" src="img/icon_party.svg"></li>
-                            <li>Party</li>
-                        </ul>   
-                    </li>
-
-                    <li class="timeline-item">
-                        <ul class="timeline-item-list">
-                            <li>24:00</li>
-                            <li><img class="timeline-image" src="img/icon_dinner.svg"></li>
-                            <li>Mitternachtsimbiss</li>
-                        </ul>   
-                    </li>
-                </ul> -->
 
                 <table>
                     <tr>
@@ -180,7 +141,9 @@
             
             <section id="trauung">
                 <h2>Gottesdienst und Kirche </h2>
-                Alle Informationen zur kirchlichen Trauung.
+                <div>
+                    Wahrscheinlich heiraten wir in der St. Nikolaus Kirche Pinzberg, aber wir warten noch auf die Zusage vom Pfarramt.
+                </div>
             </section>
 
 
@@ -192,7 +155,7 @@
                 <br>
                 <br>
                 <form action="https://goo.gl/maps/auTpNEXNQXWUg6hi8" target="_blank" rel="noopener noreferrer">
-                    <button type="submit">Zur Navigation</button>
+                    <button class="positive-button" type="submit">Zur Navigation</button>
                 </form>
             </section>
 
@@ -211,26 +174,46 @@
                 <br>
                 <br>
                 <form action="https://goo.gl/maps/Mou8F6BjNmrfhDpi7" target="_blank" rel="noopener noreferrer">
-                    <button type="submit">Zur Navigation</button>
+                    <button class="positive-button" type="submit">Zur Navigation</button>
                 </form>
             </section>
             
             <section id="vorbereiten">
                 <h2>Vorbereiten</h2>
-                Ihr möchtet ein Spiel oder eine Aktion vorbereiten?<br>
-                Hier ist der Kontakt zu unseren "Wedding-Planern"!
+                <div>
+                    Ihr möchtet ein Spiel oder eine Aktion vorbereiten?
+                    Hier ist der Kontakt zu unseren "Wedding-Planern"!
+                    Von ihnen bekommt ihr alle nötigen Infos.<br><br>
+                </div>
+
+                <table>
+                    <tr>
+                        <td><b>Maria Stenger:</b></td>
+                        <td>...</td>
+                    </tr>
+                    
+                    <tr>
+                        <td><b>Simone Kahrs:</b></td>
+                        <td>...</td>
+                    </tr>
+                </table> 
             </section>
             
             
             <section id="hotel">
                 <h2>Unterkunft</h2>
-                Liste von Übernachtungsmöglichkeiten in der Nähe
+                <div>
+                    Liste von Übernachtungsmöglichkeiten in der Nähe
+                </div>
             </section>
             
             
             <section id="geschenke">
                 <h2>Das wünschen wir uns</h2>
-                Geschenkeliste
+                <div>
+                    Eigentlich nicht viel, wir haben ja schon alles!<br>
+                    Wenn Ihr uns trotzdem etwas schenken wollt, würden wir uns über eine kleine Spende für die Hochzeitskasse freuen.
+                </div>
             </section>
         </main>
     </body>
