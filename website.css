@@ -12,9 +12,9 @@
     --color-button-negative: rgb(212, 64, 64);
 
     --default-font-size: 1.1rem;
-    --button-font-size: 2rem;
+    --button-font-size: 1.3rem;
     
-    --h1-font-size: 2rem;
+    --h1-font-size: 1.4rem;
 
     --color-title: white;
     --title-font-size: 4.5rem;
@@ -125,6 +125,7 @@ section h1 {
 
 section div {
     text-align: left;
+    font-size: var(--default-font-size);
 }
 
 .map-view {
@@ -252,5 +253,6 @@ tr {
     margin: 10px;
     width: 50%;
     text-align: left;
+    font-size: var(--default-font-size);
 }
 
