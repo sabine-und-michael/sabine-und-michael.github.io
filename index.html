@@ -12,7 +12,7 @@
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
-        <script src="website.js"></script>
+        <script src="website.js?version=1"></script>
     </head>
 
     <body>
@@ -62,17 +62,25 @@
                 <br>
 
                 <form class="register">
-                    <table>
+                    <table id="register-table">
                         <tr>
                             <td><div>Wer seid ihr:</div></td>
+                        </tr>
+                        <tr>
                             <td><input required type="text" id="guest-info-family" /></td>
                         </tr>
                         
                         <tr>
                             <td><div>Unser Kennwort:</div></td>
-                            <td><input required type="text" id="guest-info-password" /></td>
                         </tr>
                         
+                        <tr>
+                            <td><input required type = "password" id="guest-info-password" /></td>
+                        </tr>
+                    </table> 
+                    <br>
+
+                    <table id="participant-number-table">                           
                         <tr>
                             <td><div>Anzahl Erwachsene:</div></td>
                             <td><input required type="number" id="guest-info-adults" min="1" value="1" step="1"></td>
@@ -96,45 +104,84 @@
                 </form>
             </section>
 
+<!-- 
+            <section id="anmeldung">
+                    <h1>Meldet Euch an!</h1>
+                    <br>
+    
+                    <form class="register">
+                        <table>
+                            <tr>
+                                <td><div>Wer seid ihr:</div></td>
+                                <td><input required type="text" id="guest-info-family" /></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><div>Unser Kennwort:</div></td>
+                                <td><input required type = "password" id="guest-info-password" /></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><div>Anzahl Erwachsene:</div></td>
+                                <td><input required type="number" id="guest-info-adults" min="1" value="1" step="1"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><div>Anzahl Kinder<br>(4 - 12 Jahre):</div></td>
+                                <td><input required type="number" id="guest-info-children" min="0" value="0" step="1"></td>
+                            </tr>
+                            
+                            <tr>
+                                <td><div>Anzahl Kinder<br>(unter 4 Jahre):</div></td>
+                                <td><input required type="number" id="guest-info-babies" min="0" value="0" step="1"></td>
+                            </tr>
+                        </table> 
+    
+                        <br>
+                        <button class="positive-button" onclick="submit_guest_info()">Per Mail anmelden</button>
+                        <br>
+                        <button class="negative-button" onclick="decline()">Per Mail abmelden</button>
+                    </form>
+                </section> -->
 
             <section id="timeline">
                 <h1>Ablaufplan</h1>
 
-                <table>
+                <table id="timeline-table">
                     <tr>
-                        <td class="column-time">13:00</td>
-                        <td class="column-image"><img class="timeline-image" src="img/icon_church.svg"></td>
-                        <td class="column-event">Trauung</td>
+                        <td class="column-image"><img class="timeline-image" src="img/icon_church_colored.svg"></td>
+                        <td class="column-time"><div>13:00</div></td>
+                        <td class="column-event"><div>Trauung</div></td>
                     </tr>
 
                     <tr>
-                        <td class="column-time">14:00</td>
-                        <td class="column-image"><img class="timeline-image" src="img/icon_drink.svg"></td>
-                        <td class="column-event">Sektempfang</td>
+                        <td class="column-image"><img class="timeline-image" src="img/icon_drink_colored.svg"></td>
+                        <td class="column-time"><div>14:00</div></td>
+                        <td class="column-event"><div>Sektempfang</div></td>
                     </tr>
 
                     <tr>
-                        <td class="column-time">15:00</td>
-                        <td class="column-image"><img class="timeline-image" src="img/icon_cup.svg"></td>
-                        <td class="column-event">Kaffe und Kuchen</td>
+                        <td class="column-image"><img class="timeline-image" src="img/icon_cup_colored.svg"></td>
+                        <td class="column-time"><div>15:00</div></td>
+                        <td class="column-event"><div>Kaffe und Kuchen</div></td>
                     </tr>
 
                     <tr>
-                        <td class="column-time">18:00</td>
-                        <td class="column-image"><img class="timeline-image" src="img/icon_dinner.svg"></td>
-                        <td class="column-event">Abendessen</td>
+                        <td class="column-image"><img class="timeline-image" src="img/icon_dinner_colored.svg"></td>
+                        <td class="column-time"><div>18:00</div></td>
+                        <td class="column-event"><div>Abendessen</div></td>
                     </tr>
 
                     <tr>
-                        <td class="column-time">20:00</td>
-                        <td class="column-image"><img class="timeline-image" src="img/icon_party.svg"></td>
-                        <td class="column-event">Party</td>
+                        <td class="column-image"><img class="timeline-image" src="img/icon_party_colored.svg"></td>
+                        <td class="column-time"><div>20:00</div></td>
+                        <td class="column-event"><div>Party</div></td>
                     </tr>
 
                     <tr>
-                        <td class="column-time">24:00</td>
-                        <td class="column-image"><img class="timeline-image" src="img/icon_dinner.svg"></td>
-                        <td class="column-event">Mitternachtsimbiss</td>
+                        <td class="column-image"><img class="timeline-image" src="img/icon_dinner_colored.svg"></td>
+                        <td class="column-time"><div>24:00</div></td>
+                        <td class="column-event"><div>Mitternachtsimbiss </div></td>
                     </tr>
                 </table> 
             </section>
@@ -189,13 +236,13 @@
 
                 <table>
                     <tr>
-                        <td><b>Maria Stenger:</b></td>
-                        <td>...</td>
+                        <td><b>Maria Stenger</b></td>
+                        <td></td>
                     </tr>
                     
                     <tr>
-                        <td><b>Simone Kahrs:</b></td>
-                        <td>...</td>
+                        <td><b>Simone Kahrs</b></td>
+                        <td></td>
                     </tr>
                 </table> 
             </section>

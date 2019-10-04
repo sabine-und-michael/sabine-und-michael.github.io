@@ -28,7 +28,7 @@
     text-align: center;
     background-color: var(--color-primary);
     font-family: 'Roboto Mono', monospace;
-    font-size: var(--default-font-size);
+    font-size: var(--h1-font-size);
 }
 
 header {
@@ -181,11 +181,10 @@ nav {
     text-decoration: none;
 }
 
-.timeline-image {
-    width:  10%;
-    height: 10%;
-    min-width:  50px;
-    min-height: 50px;
+#timeline-table {
+    margin-left:auto; 
+    margin-right:auto;
+    width: unset;
 }
 
 table {
@@ -205,8 +204,18 @@ tr {
     text-align: center;
 }
 
+.column-time div {
+    margin: 10px;
+}
+
 .column-image {
     text-align: center;
+}
+
+.timeline-image {
+    width:  70px;
+    height: 70px;
+    margin: 10px 0px;
 }
 
 .register td {
@@ -256,3 +265,23 @@ tr {
     font-size: var(--default-font-size);
 }
 
+#register-table {
+    width: 50%;
+    min-width: 250px;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+#register-table div {
+    text-align: left;
+}
+
+#participant-number-table {
+    width: unset;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+#participant-number-table input {
+    max-width: 100px;
+}
