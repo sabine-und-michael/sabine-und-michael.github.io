@@ -1,49 +1,34 @@
 :root {
     --color-primary: #B8E0AB;
     --color-secondary: white;
-    --color-tertiary: rgba(85, 107, 47, 0.055);
+    --color-tertiary: #B8E0AB;
     --color-shade: #B8E0AB;
-    --color-button: rgb(94, 177, 67);
-    --color-red: rgb(212, 64, 64);
-    --color-light-red: rgb(172, 108, 113);
+
+    --color-green: rgb(94, 177, 67);
+    --color-white: white;
+
+    --color-nav-link: rgb(94, 177, 67);
+    --color-button-positive: rgb(94, 177, 67);
+    --color-button-negative: rgb(212, 64, 64);
 
     --default-font-size: 1.1rem;
     --button-font-size: 2rem;
+    
+    --h1-font-size: 2rem;
+
+    --color-title: white;
+    --title-font-size: 4.5rem;
+    --subtitle-font-size: 3.5rem;
 
     --border-radius: 5px;
 }
 
 #countdown-timer {
-    text-align: center;
-    font-size: 1.2rem;
-    background-color: var(--color-primary);
     padding: 10px;
+    text-align: center;
+    background-color: var(--color-primary);
     font-family: 'Roboto Mono', monospace;
-}
-
-#header-text {
-    font-family: 'Amatic SC', cursive;
-    font-weight: bold;
-    color: var(--color-secondary);
-    text-align:center;
-    display: inline-block;
-    margin: 25px;
-    font-size: 4.5rem;
-}
-
-#header-subtitle {
-    font-family: 'Amatic SC', cursive;
-    font-weight: bold;
-    color: white;
-    text-align:center;
-    display: inline-block;
-    margin: 25px;
-    font-size: 3.5rem;
-}
-
-#header-line {
-    margin: 0px 100px 0px 100px;
-    border: 2px solid var(--color-secondary);
+    font-size: var(--default-font-size);
 }
 
 header {
@@ -54,14 +39,35 @@ header {
     border: 5px solid var(--color-secondary);
 }
 
+header div {
+    font-family: 'Amatic SC', cursive;
+    font-weight: bold;
+    color: var(--color-title);
+    display: inline-block;
+    margin: 25px;
+}
+
+#header-title {
+    font-size: var(--title-font-size);
+}
+
+#header-subtitle {
+    font-size: var(--subtitle-font-size);
+}
+
+#header-line {
+    margin: 0px 100px 0px 100px;
+    border: 2px solid var(--color-secondary);
+}
+
 body {
     margin: 0px auto;
     max-width: 1000px;
     min-width: 400px;
 
+    color: black;
     background: var(--color-shade);
     font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-    color: black;
     font-size: var(--default-font-size);
 }
 
@@ -80,27 +86,27 @@ button {
 }
 
 .positive-button {
-    border: 2px solid var(--color-button);
-    background: var(--color-button);
+    border: 2px solid var(--color-button-positive);
+    background: var(--color-button-positive);
     color: var(--color-secondary);
 }
 
 .positive-button:hover {
-    border: 2px solid var(--color-button);
+    border: 2px solid var(--color-button-positive);
     background-color: var(--color-secondary);
-    color: var(--color-button);
+    color: var(--color-button-positive);
 }
 
 .negative-button {
-    border: 2px solid var(--color-red);
-    background: var(--color-red);
+    border: 2px solid var(--color-button-negative);
+    background: var(--color-button-negative);
     color: var(--color-secondary);
 }
 
 .negative-button:hover {
-    border: 2px solid var(--color-red);
+    border: 2px solid var(--color-button-negative);
     background-color: var(--color-secondary);
-    color: var(--color-red);
+    color: var(--color-button-negative);
 }
 
 section {
@@ -108,9 +114,13 @@ section {
     text-align: center;
 }
 
-section h2 {
-    background-color: var(--color-tertiary);
-    padding: 0px 10px;
+section h1 {
+    font-size: var(--h1-font-size);
+    font-weight: bold;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    margin: 50px 10px 30px 10px;
+    padding: 5px;
 }
 
 section div {
@@ -152,15 +162,16 @@ nav {
     margin: 5px;
     text-align: center;
     font-weight: bold;
+    font-size: var(--default-font-size);
 
-    background-color: var(--color-button);
+    background-color: var(--color-nav-link);
     color: var(--color-secondary);
-    border: 2px solid var(--color-button);
+    border: 2px solid var(--color-nav-link);
 }
 
 .nav-link:hover {
-    border: 2px solid var(--color-button);
-    color: var(--color-button);
+    border: 2px solid var(--color-nav-link);
+    color: var(--color-nav-link);
     background-color: var(--color-secondary);
 }
 
