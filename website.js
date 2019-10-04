@@ -121,11 +121,16 @@ var x = setInterval(function()
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
+        var day_text    = days    === 1 ? "Tag"     : "Tage";
+        var hour_text   = hours   === 1 ? "Stunde"  : "Stunden";
+        var minute_text = minutes === 1 ? "Minute"  : "Minuten";
+        var second_text = seconds === 1 ? "Sekunde" : "Sekunden";
+
         document.getElementById("countdown-timer").innerHTML = 
             "Noch " +
-            days + " Tage - " + 
-            hours + " Stunden - " + 
-            minutes + " Minuten " +
-            seconds + " Sekunden";
+            days    + "&nbsp;" + day_text    + ", " +
+            hours   + "&nbsp;" + hour_text   + ", " +
+            minutes + "&nbsp;" + minute_text + ", " +
+            seconds + "&nbsp;" + second_text ;
     }
 }, 1000);
