@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="de-DE">
+    <head>
+        <title>Security</title>
+        <meta charset="utf-8">
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
+        
+        <script>
+            function encrypt() 
+            {
+                var password      = document.getElementById("password").value;
+                var password_salt = document.getElementById("password-salt").value;
+                var secret        = document.getElementById("secret").value;
+                var secret_salt   = document.getElementById("secret-salt").value;
+
+                var hash = CryptoJS.SHA256(password + password_salt).toString();
+                document.getElementById("hashed-password").innerHTML = hash;
+
+                var encrypted = CryptoJS.AES.encrypt(secret + secret_salt, password);
+                document.getElementById("encrypted-secret").innerHTML = encrypted;
+            }
+
+            function decrypt() 
+            {
+                var password  = document.getElementById("password-for-decryption").value;
+                var encrypted = document.getElementById("encrypted").value;
+
+                var decrypted = CryptoJS.AES.decrypt(encrypted, password).toString(CryptoJS.enc.Utf8);
+                document.getElementById("decrypted").innerHTML = decrypted;
+            }
+        </script>
+    </head>
+
+    <body>
+        <hr>
+        <form>
+            Password: <input required type="text" id="password" />
+            <br>
+            Password-Salt: <input required type="text" id="password-salt" />
+            <br>
+            <br>
+            Secret: <input required type="text" id="secret" />
+            <br>
+            Secret-Salt: <input required type="text" id="secret-salt" />
+        </form>
+        
+        <br>
+        <button onclick="encrypt()">Encrypt</button>
+        <br>
+        <hr>
+
+        <b>Salted + Hashed Password:</b> 
+        <div style='word-break: break-all; word-wrap: break-word;' id="hashed-password">-</div>
+        <br>
+        <b>Salted + Encrypted Secret:</b>
+        <div style='word-break: break-all; word-wrap: break-word;' id="encrypted-secret">-</div>
+        <hr>
+
+        <br>
+        <br>
+
+        <hr>
+        
+        <form>
+            Password: <input required type="text" id="password-for-decryption" />
+            <br>
+            Encrypted: <input required type="text" id="encrypted" />
+        </form>
+        
+        <br>
+        <button onclick="decrypt()">Decrypt</button>
+        <br>
+        <hr>
+
+        <b>Decrypted:</b>
+        <div style='word-break: break-all; word-wrap: break-word;' id="decrypted">-</div>
+        <hr>
+    </body>
+</html>
