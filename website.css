@@ -234,7 +234,7 @@ tr {
     font-size: var(--default-font-size);
 }
 
-#info-list {
+.info-list {
     list-style-type: none;
     margin: none;
     padding: none;
@@ -251,16 +251,15 @@ tr {
     text-align: center;
     display: inline-block;
 }
-
-#img-verlobung {
+.info-list-item img {
     width: 66%;
     border-radius: 50%;
     min-width: 200px;
 }
 
-#info-list-text {
+.info-list-item div {
     margin: 10px;
-    width: 50%;
+    width: 80%;
     text-align: left;
     font-size: var(--default-font-size);
 }
