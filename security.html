@@ -34,48 +34,79 @@
     </head>
 
     <body>
-        <hr>
-        <form>
-            Password: <input required type="text" id="password" />
-            <br>
-            Password-Salt: <input required type="text" id="password-salt" />
-            <br>
-            <br>
-            Secret: <input required type="text" id="secret" />
-            <br>
-            Secret-Salt: <input required type="text" id="secret-salt" />
-        </form>
-        
-        <br>
-        <button onclick="encrypt()">Encrypt</button>
-        <br>
-        <hr>
+        <section style='background-color: lightblue; padding: 20px;'>
+            <hr>
+            <!-- <form>
+                Password: <input style='width: 700px;' required type="text" id="password" />
+                <br>
+                Password-Salt: <input style='width: 700px;' required type="text" id="password-salt" />
+                <br>
+                <br>
+                Secret: <input style='width: 700px;' required type="text" id="secret" />
+                <br>
+                Secret-Salt: <input style='width: 700px;' required type="text" id="secret-salt" />
+            </form> -->
 
-        <b>Salted + Hashed Password:</b> 
-        <div style='word-break: break-all; word-wrap: break-word;' id="hashed-password">-</div>
-        <br>
-        <b>Salted + Encrypted Secret:</b>
-        <div style='word-break: break-all; word-wrap: break-word;' id="encrypted-secret">-</div>
-        <hr>
-
-        <br>
-        <br>
-
-        <hr>
-        
-        <form>
-            Password: <input required type="text" id="password-for-decryption" />
+            <form>
+                <table>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input style='width: 700px;' required type="text" id="password" /></td>
+                    </tr>
+                    <tr>
+                        <td>Password-Salt:</td>
+                        <td><input style='width: 700px;' required type="text" id="password-salt" /></td>
+                    </tr>
+                    <tr>
+                        <td>Secret:</td>
+                        <td><input style='width: 700px;' required type="text" id="secret" /></td>
+                    </tr>
+                    <tr>
+                        <td>Secret-Salt:</td>
+                        <td><input style='width: 700px;' required type="text" id="secret-salt" /></td>
+                    </tr>
+                </table>
+            </form>
+            
             <br>
-            Encrypted: <input required type="text" id="encrypted" />
-        </form>
-        
-        <br>
-        <button onclick="decrypt()">Decrypt</button>
-        <br>
-        <hr>
+            <button onclick="encrypt()">Encrypt</button>
+            <br>
+            <hr>
 
-        <b>Decrypted:</b>
-        <div style='word-break: break-all; word-wrap: break-word;' id="decrypted">-</div>
-        <hr>
+            <b>Salted + Hashed Password:</b> 
+            <div style='word-break: break-all; word-wrap: break-word;' id="hashed-password">-</div>
+            <br>
+            <b>Salted + Encrypted Secret:</b>
+            <div style='word-break: break-all; word-wrap: break-word;' id="encrypted-secret">-</div>
+            <hr>
+        </section>
+        <br>
+        <br>
+
+        <section style='background-color: lightcoral; padding: 20px;'>
+            <hr>
+            
+            <form>
+                <table>
+                    <tr>
+                        <td>Password:</td>
+                        <td><input style='width: 700px;' required type="text" id="password-for-decryption" /></td>
+                    </tr>
+                    <tr>
+                        <td>Encrypted:</td>
+                        <td><input style='width: 700px;' required type="text" id="encrypted" /></td>
+                    </tr>
+                </table>
+            </form>
+            
+            <br>
+            <button onclick="decrypt()">Decrypt</button>
+            <br>
+            <hr>
+
+            <b>Decrypted:</b>
+            <div style='word-break: break-all; word-wrap: break-word;' id="decrypted">-</div>
+            <hr>
+        </section>
     </body>
 </html>
