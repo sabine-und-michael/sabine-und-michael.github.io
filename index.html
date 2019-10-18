@@ -6,6 +6,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <link rel="stylesheet" href="website.css">
+        <link rel="stylesheet" href="navigation.css">
+        <link rel="stylesheet" href="button.css">
+        <link rel="stylesheet" href="info-tuple.css">
+
         <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet"> 
         <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
@@ -17,22 +21,28 @@
 
     <body onload="on_page_loaded()">
         <header>
-            <div id="header-title">
-                Sabine und Michael heiraten!
-            </div>
-            <hr id="header-line">
-            <div id="header-subtitle">
-                Am 06.06.2020 wird gefeiert
-            </div>
+            <h1>Sabine und Michael heiraten!</h1>
+            <hr>
+            <h2>Am 06.06.2020 wird gefeiert</h2>
         </header>
 
         <main id="main">
             <section>
-                Kennwort: 
-                <input required type="text" id="page-password">
+                <h1>Kennwort: </h1>
                 <br>
-                <button class="positive-button" onclick="try_open_page()">Sesam öffne dich</button>
+                <form onsubmit="return false">
+                    <input required type="text" id="page-password">
+                    <br>
+                    <br>
+                    <button class="positive-button" onclick="try_open_page()">Sesam öffne dich</button>
+                </form>
             </section>
         </main>
+
+        <footer>
+            <form>
+                <button onclick="remove_cookie()">Ausloggen</button>
+            </form>
+        </footer>
     </body>
 </html>
