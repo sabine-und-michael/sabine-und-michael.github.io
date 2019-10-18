@@ -15,12 +15,12 @@
     flex-basis: 0;
     text-align: center;
     display: inline-block;
+    min-width: 250px;
 }
 
 .info-tuple li img {
     width: 66%;
     border-radius: 50%;
-    min-width: 200px;
 }
 
 .info-tuple li div {

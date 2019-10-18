@@ -55,6 +55,26 @@ header hr {
     border: 2px solid var(--color-secondary);
 }
 
+footer {
+    text-align: center;
+}
+
+footer button {
+    margin: 5px;
+    padding: 5px;
+    border-radius: 0px;
+    border-width: 0px;
+    font-size: var(--default-font-size);
+    font-weight: unset;
+    background: var(--color-button-positive);
+    color: var(--color-secondary);
+}
+
+input {
+    font-size: var(--default-font-size);
+    text-align: left;
+}
+
 #register-table {
     width: 50%;
     min-width: 250px;
@@ -65,7 +85,6 @@ header hr {
 #register-table input {
     width: 80%;
     text-align: right;
-    font-size: var(--default-font-size);
 }
 
 #register-table div {
@@ -80,7 +99,6 @@ header hr {
 
 #participant-table input {
     max-width: 100px;
-    font-size: var(--default-font-size);
 }
 
 #participant-table td {
