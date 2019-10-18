@@ -1,0 +1,32 @@
+button {
+    padding: 12px 28px;
+    margin: 5px;
+    text-align: center;
+    border-radius: var(--border-radius);
+    font-size: var(--button-font-size);
+    font-weight: bold;
+}
+
+.positive-button {
+    border: 2px solid var(--color-button-positive);
+    background: var(--color-button-positive);
+    color: var(--color-secondary);
+}
+
+.positive-button:hover {
+    border: 2px solid var(--color-button-positive);
+    background-color: var(--color-secondary);
+    color: var(--color-button-positive);
+}
+
+.negative-button {
+    border: 2px solid var(--color-button-negative);
+    background: var(--color-button-negative);
+    color: var(--color-secondary);
+}
+
+.negative-button:hover {
+    border: 2px solid var(--color-button-negative);
+    background-color: var(--color-secondary);
+    color: var(--color-button-negative);
+}

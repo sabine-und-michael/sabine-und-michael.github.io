@@ -67,6 +67,14 @@ function set_password_cookie(password)
     document.cookie = cookie;
 }
 
+function remove_cookie()
+{
+    var date = new Date();
+    date.setTime(date.getTime() - 1);
+    var cookie = ";expires="+ date.toUTCString();
+    document.cookie = cookie;
+}
+
 function check_details()
 {
     var family = document.getElementById("guest-info-family").value;
