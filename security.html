@@ -28,7 +28,7 @@
                 var encrypted = document.getElementById("encrypted").value;
 
                 var decrypted = CryptoJS.AES.decrypt(encrypted, password).toString(CryptoJS.enc.Utf8);
-                document.getElementById("decrypted").innerHTML = decrypted;
+                document.getElementById("decrypted").value = decrypted;
             }
         </script>
     </head>
@@ -94,7 +94,8 @@
             <hr>
 
             <b>Decrypted:</b>
-            <div style='word-break: break-all; word-wrap: break-word;' id="decrypted">-</div>
+            <!-- <div style='word-break: break-all; word-wrap: break-word;' id="decrypted">-</div> -->
+            <input style='width: 700px;' id="decrypted"></input>
             <hr>
         </section>
     </body>
