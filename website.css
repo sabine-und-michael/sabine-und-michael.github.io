@@ -98,7 +98,7 @@ input {
 }
 
 #participant-table input {
-    max-width: 100px;
+    max-width: 80px;
 }
 
 #participant-table td {
@@ -179,14 +179,10 @@ tr {
 }
 
 .column-event {
-    text-align: left;
-}
-
-.column-time {
     text-align: center;
 }
 
-.column-time div {
+.column-event div {
     margin: 10px;
     margin-left: 30px;
 }
