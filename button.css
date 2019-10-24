@@ -2,31 +2,41 @@ button {
     padding: 12px 28px;
     margin: 5px;
     text-align: center;
-    border-radius: var(--border-radius);
     font-size: var(--button-font-size);
     font-weight: bold;
+
+    border-radius: var(--border-radius);
+    border-width: 2px;
+    border-style: solid;
+
+    border-color: var(--color-button-primary);
+    background: var(--color-button-primary);
+    color: var(--color-button-secondary);
+}
+
+button:hover {
+    background-color: var(--color-button-secondary);
+    color: var(--color-button-primary);
 }
 
 .positive-button {
-    border: 2px solid var(--color-button-positive);
-    background: var(--color-button-positive);
-    color: var(--color-secondary);
+    border-color: var(--color-button-positive-primary);
+    background: var(--color-button-positive-primary);
+    color: var(--color-button-positive-secondary);
 }
 
 .positive-button:hover {
-    border: 2px solid var(--color-button-positive);
-    background-color: var(--color-secondary);
-    color: var(--color-button-positive);
+    background-color: var(--color-button-positive-secondary);
+    color: var(--color-button-positive-primary);
 }
 
 .negative-button {
-    border: 2px solid var(--color-button-negative);
-    background: var(--color-button-negative);
-    color: var(--color-secondary);
+    border-color: var(--color-button-negative-primary);
+    background: var(--color-button-negative-primary);
+    color: var(--color-button-negative-secondary);
 }
 
 .negative-button:hover {
-    border: 2px solid var(--color-button-negative);
-    background-color: var(--color-secondary);
-    color: var(--color-button-negative);
+    background-color: var(--color-button-negative-secondary);
+    color: var(--color-button-negative-primary);
 }
