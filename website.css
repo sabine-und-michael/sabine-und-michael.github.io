@@ -1,45 +1,57 @@
 :root {
-    --color-primary: #B8E0AB;
-    --color-secondary: white;
-    --color-tertiary: #B8E0AB;
-    --color-shade: #B8E0AB;
-
-    --color-green: rgb(94, 177, 67);
-    --color-white: white;
-
-    --color-nav-link: rgb(94, 177, 67);
-    --color-button-positive: rgb(94, 177, 67);
-    --color-button-negative: rgb(212, 64, 64);
-
+    --h1-font-size: 1.4rem;
     --default-font-size: 1.1rem;
     --button-font-size: 1.3rem;
-    
-    --h1-font-size: 1.4rem;
-
-    --color-title: white;
     --title-font-size: 4.5rem;
     --subtitle-font-size: 3.5rem;
 
     --border-radius: 5px;
+
+    
+    --text-color-header: white;
+    --background-color-header: #B8E0AB;
+    
+    --text-color-main: black;
+    --background-color-main: white;
+    --background-color-page: #B8E0AB;
+
+    --text-color-section-header: white;
+    --background-color-section-header: rgb(94, 177, 67);
+
+    --color-nav-primary: rgb(94, 177, 67);
+    --color-nav-secondary: white;
+
+    --color-button-primary: rgb(94, 177, 67);
+    --color-button-secondary: white;
+
+    --color-button-positive-primary: rgb(94, 177, 67);
+    --color-button-positive-secondary: white;
+
+    --color-button-negative-primary: rgb(212, 64, 64);
+    --color-button-negative-secondary: white;
 }
 
 #countdown-timer {
     padding: 10px;
     text-align: center;
-    background-color: var(--color-primary);
     font-family: 'Roboto Mono', monospace;
     font-size: var(--h1-font-size);
+    background-color: var(--background-color-page);
 }
 
 header {
     margin: 0px 25px 0px 25px;
-    background: var(--color-shade);
+    background: var(--background-color-header);
     background-size: 100%;
     text-align: center;
-    border: 5px solid var(--color-secondary);
+
+    border-width: 5px;
+    border-color: var(--text-color-header);
+    border-style: solid;
+
     font-family: 'Amatic SC', cursive;
     font-weight: bold;
-    color: var(--color-title);
+    color: var(--text-color-header);
 }
 
 header h1 {
@@ -52,7 +64,9 @@ header h2 {
 
 header hr {
     margin: 0px 100px 0px 100px;
-    border: 2px solid var(--color-secondary);
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--text-color-header);
 }
 
 footer {
@@ -64,10 +78,10 @@ footer button {
     padding: 5px;
     border-radius: 0px;
     border-width: 0px;
-    font-size: var(--default-font-size);
     font-weight: unset;
-    background: var(--color-button-positive);
-    color: var(--color-secondary);
+    font-size: var(--default-font-size);
+    background: var(--color-button-primary);
+    color: var(--color-button-secondary);
 }
 
 input {
@@ -116,14 +130,14 @@ body {
     max-width: 1000px;
     min-width: 400px;
 
-    color: black;
-    background: var(--color-shade);
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    color: var(--text-color-main);
+    background: var(--background-color-page);
     font-size: var(--default-font-size);
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
 }
 
 main {
-    background-color: var(--color-secondary);
+    background-color: var(--background-color-main);
     margin: 25px;
 }
 
@@ -133,10 +147,10 @@ section {
 }
 
 section h1 {
-    font-size: var(--h1-font-size);
     font-weight: bold;
-    background-color: var(--color-green);
-    color: var(--color-white);
+    font-size: var(--h1-font-size);
+    background-color: var(--background-color-section-header);
+    color: var(--text-color-section-header);
     margin-top: 50px;
     margin-top: 30px;
     padding: 5px;

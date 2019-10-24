@@ -1,5 +1,4 @@
 nav {
-    background-color: var(--color-secondary);
     padding: 25px;
 }
 
@@ -19,15 +18,17 @@ nav {
     font-weight: bold;
     font-size: var(--default-font-size);
 
-    background-color: var(--color-nav-link);
-    color: var(--color-secondary);
-    border: 2px solid var(--color-nav-link);
+    background-color: var(--color-nav-primary);
+    color: var(--color-nav-secondary);
+
+    border-width: 2px;
+    border-style: solid;
+    border-color: var(--color-nav-primary);
 }
 
 .nav-list li:hover {
-    border: 2px solid var(--color-nav-link);
-    color: var(--color-nav-link);
-    background-color: var(--color-secondary);
+    color: var(--color-nav-primary);
+    background-color: var(--color-nav-secondary);
 }
 
 .nav-list li a {
