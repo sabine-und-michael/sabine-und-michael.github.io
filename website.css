@@ -6,7 +6,7 @@
     --subtitle-font-size: 3.5rem;
 
     --border-radius: 5px;
-    
+
     /* blau */
     /* 1: rgb(90, 128, 199); */
     /* 2: rgb(166, 197, 255); */
@@ -131,7 +131,7 @@ input {
 body {
     margin: 0px auto;
     max-width: 1000px;
-    min-width: 400px;
+    min-width: 500px;
 
     color: var(--text-color-main);
     background: var(--background-color-page);
@@ -162,6 +162,8 @@ section h1 {
 section div {
     text-align: left;
     font-size: var(--default-font-size);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 table {
@@ -184,12 +186,11 @@ tr {
 
 .map-wrapper {
     position: relative;
-    width: 100%;
     height: 0;
     padding-bottom: 50%;
 }
 
-#timeline-table {
+.centered-table {
     margin-left:auto; 
     margin-right:auto;
     width: unset;
@@ -216,4 +217,15 @@ tr {
 
 #wedding-planner-contact {
     text-align: center;
+}
+
+#hotel-table div {
+    padding: 10px;
+    padding-right: 30px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#hotel-table a {
+    font-weight: bold;
 }

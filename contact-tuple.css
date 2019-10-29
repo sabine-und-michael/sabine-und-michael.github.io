@@ -1,5 +1,5 @@
 
-.info-tuple {
+.contact-tuple {
     list-style-type: none;
     margin: none;
     padding: none;
@@ -10,22 +10,14 @@
     flex-wrap: wrap;
 }
 
-.info-tuple li {
+.contact-tuple li {
     flex-grow: 1;
     flex-basis: 0;
-    text-align: center;
     display: inline-block;
-    min-width: 250px;
+    min-width: 270px;
 }
 
-.info-tuple li img {
-    width: 70%;
-    border-radius: 50%;
-}
-
-.info-tuple li div {
+.contact-tuple li div {
     margin: 10px;
-    width: 80%;
-    text-align: left;
-    font-size: var(--default-font-size);
+    text-align: center;
 }
