@@ -18,7 +18,7 @@ function get_page_password()
 function is_password_correct(password)
 {
     var salt = "at4n8k$m§l!"
-    var expectedHash = "0e1e09fad35750abcf31aff6e074c76ae7c58b4632a30eaa93019a8916fdac1d";
+    var expectedHash = "9e07cf2927fe7f5f80e0efd673ba92e25d06d89c6b9b63c115f6b91b1492d936";
     var actualHash = CryptoJS.SHA256(password + salt).toString();
     
     return actualHash === expectedHash;
@@ -107,20 +107,7 @@ function check_family_name()
 
 function get_address()
 {
-    try
-    {
-        var password = document.cookie;
-        var encrypted = "U2FsdGVkX191CwijcwrkpkzzwT+yB2ccAM8HdWbz5GcJeSK5huD21DnO5JQ4JhtYOxAlopSUqB7NWXIMcJ9A3Q==";
-
-        var decrypted = decrypt_content(password, encrypted);
-        return decrypted.substring(0, decrypted.length - 10);
-    }
-    catch(err)
-    {
-        alert("Konnte Ziel EMail-Adresse nicht bestimmen");
-        console.log(err);
-        return "";
-    }
+    return document.getElementById("mail-address").innerHTML;
 }
 
 function submit_guest_info() 
@@ -139,7 +126,6 @@ function submit_guest_info()
         text += babies   + " Kleinkinder\n";
     
         var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURI(text);
-        console.log(mailto);
         window.location.href = mailto;
     }
 }
@@ -154,7 +140,6 @@ function decline()
         text += "Wer sind wir: " + family + "\n";
     
         var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURI(text);
-        console.log(mailto);
         window.location.href = mailto;
     }
 }
