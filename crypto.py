@@ -99,28 +99,32 @@ encrypted html code.
 Please adjust the paths below as needed!
 """
 
+if __name__ == "__main__":
+    
+    
 ###############################################################################
-path_to_input_file = ""
-path_to_output_file = "website.js"
-password = b""
+    import crypto_config    
+    path_to_input_file  = crypto_config.path_to_input_file
+    path_to_output_file = crypto_config.path_to_output_file
+    password            = crypto_config.password
 ###############################################################################
-
-fid = open(path_to_input_file, encoding="utf-8")
-content = fid.readlines()
-fid.close()
-
-start = 0
-end = 0
-for index in range(len(content)):
-    line = content[index]
-    if "@@start@@" in line:
-        start = index + 1
-    if "@@end@@" in line:
-        end = index
-        
-page_content = "\n".join(content[start:end]).encode()
-encrypted_page = encrypt(page_content, password)
-fid = open(path_to_output_file, "w")
-content = "function get_content()\n{\n\treturn \"" + encrypted_page.decode() + "\";\n}"
-fid.write(content)
-fid.close()
+    
+    fid = open(path_to_input_file, encoding="utf-8")
+    content = fid.readlines()
+    fid.close()
+    
+    start = 0
+    end = 0
+    for index in range(len(content)):
+        line = content[index]
+        if "@@start@@" in line:
+            start = index + 1
+        if "@@end@@" in line:
+            end = index
+            
+    page_content = "\n".join(content[start:end]).encode()
+    encrypted_page = encrypt(page_content, password)
+    fid = open(path_to_output_file, "w")
+    content = "function get_content()\n{\n\treturn \"" + encrypted_page.decode() + "\";\n}"
+    fid.write(content)
+    fid.close()
