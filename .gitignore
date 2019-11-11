@@ -1,6 +1,5 @@
 _site
 .sass-cache
 .jekyll-metadata
-crypto_config.py
 __pycache__
 index_dev.html
