@@ -221,37 +221,27 @@ tr {
     margin: 10px 0px;
 }
 
-#hotel-table div {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    padding-right: 20px;
-    padding-left: 20px;
-    text-align: right;
-}
-
 #hotel-table {
     border-collapse: collapse;
 }
 
-#hotel-table tr {
+#hotel-table tr:nth-child(2n+1) {
     background-color: var(--background-color-page);
 }
 
-#hotel-table tr:nth-child(2n) {
-    background-color: var(--background-color-main);
-}
-
-#hotel-table a {
-    color: var(--text-color-main);
-    padding-right: 20px;
-    padding-left: 20px;
-}
-
-#hotel-table a:hover {
-    text-decoration: none;
-}
-
-#hotel-table .town {
+#hotel-table div {
+    padding: 10px;
     text-align: left;
-    font-weight: normal;
+}
+
+#hotel-table .distance {
+    text-align: right;
+}
+
+#hotel-table .link a {
+    color: var(--text-color-main);
+}
+
+#hotel-table .link a:hover {
+    text-decoration: none;
 }
