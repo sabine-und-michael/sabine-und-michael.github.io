@@ -11,6 +11,8 @@
     /* 1: rgb(90, 128, 199); */
     /* 2: rgb(166, 197, 255); */
     
+    --link-color: rgb(79, 132, 230);
+
     --text-color-header: white;
     --background-color-header: #B8E0AB;
     
@@ -32,6 +34,10 @@
 
     --color-button-negative-primary: rgb(212, 64, 64);
     --color-button-negative-secondary: white;
+}
+
+a {
+    color: var(--link-color);
 }
 
 #countdown-timer {
@@ -215,17 +221,37 @@ tr {
     margin: 10px 0px;
 }
 
-#wedding-planner-contact {
-    text-align: center;
-}
-
 #hotel-table div {
-    padding: 10px;
-    padding-right: 30px;
-    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     text-align: right;
 }
 
+#hotel-table {
+    border-collapse: collapse;
+}
+
+#hotel-table tr {
+    background-color: var(--background-color-page);
+}
+
+#hotel-table tr:nth-child(2n) {
+    background-color: var(--background-color-main);
+}
+
 #hotel-table a {
-    font-weight: bold;
+    color: var(--text-color-main);
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+#hotel-table a:hover {
+    text-decoration: none;
+}
+
+#hotel-table .town {
+    text-align: left;
+    font-weight: normal;
 }
