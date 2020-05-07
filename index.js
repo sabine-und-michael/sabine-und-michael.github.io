@@ -12,13 +12,13 @@ function on_page_loaded()
 
 function get_page_password()
 {
-    return document.getElementById("page-password").value;
+    return document.getElementById("page-password").value.toLowerCase();
 }
 
 function is_password_correct(password)
 {
-    var salt = "at4n8k$m§l!"
-    var expectedHash = "9e07cf2927fe7f5f80e0efd673ba92e25d06d89c6b9b63c115f6b91b1492d936";
+    var salt = "at4n8k$m§l!";
+    var expectedHash = "0e1e09fad35750abcf31aff6e074c76ae7c58b4632a30eaa93019a8916fdac1d";
     var actualHash = CryptoJS.SHA256(password + salt).toString();
     
     return actualHash === expectedHash;
@@ -67,7 +67,7 @@ function remove_cookie()
 {
     var date = new Date();
     date.setTime(date.getTime() - 1);
-    var cookie = ";expires="+ date.toUTCString();
+    var cookie = /*";expires=" + date.toUTCString() +*/ ";path=/;max-age=0;";
     document.cookie = cookie;
 }
 
@@ -148,7 +148,7 @@ function on_page_decrypted()
 {
     var x = setInterval(function() 
     {
-        var countDownDate = new Date(2020, 5, 6, 13, 0).getTime();
+        var countDownDate = new Date(2021, 4, 22, 13, 0).getTime();
 
         var now = new Date().getTime();
         var distance = countDownDate - now;
