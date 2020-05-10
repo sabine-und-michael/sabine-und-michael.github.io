@@ -57,7 +57,7 @@ function set_password_cookie(password)
 {
     var date = new Date();
     date.setTime(date.getTime() + (366 * 24 * 60 * 60 * 1000));
-    var expires = ";expires="+ date.toUTCString();
+    var expires = ";path=/;expires="+ date.toUTCString();
     var cookie = password + expires; 
     console.log("set cookie: " + cookie);
     document.cookie = cookie;
@@ -67,7 +67,7 @@ function remove_cookie()
 {
     var date = new Date();
     date.setTime(date.getTime() - 1);
-    var cookie = /*";expires=" + date.toUTCString() +*/ ";path=/;max-age=0;";
+    var cookie = ";path=/;max-age=0;";
     document.cookie = cookie;
 }
 
@@ -125,7 +125,7 @@ function submit_guest_info()
         text += children + " Kinder\n";
         text += babies   + " Kleinkinder\n";
     
-        var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURI(text);
+        var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURIComponent(text);
         window.location.href = mailto;
     }
 }
@@ -139,7 +139,7 @@ function decline()
         var text = "Wir können leider nicht zu eurer Hochzeit kommen.\n\n";
         text += "Wer sind wir: " + family + "\n";
     
-        var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURI(text);
+        var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURIComponent(text);
         window.location.href = mailto;
     }
 }
