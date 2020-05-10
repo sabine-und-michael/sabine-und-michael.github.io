@@ -128,3 +128,5 @@ if __name__ == "__main__":
     content = "function get_content()\n{\n\treturn \"" + encrypted_page.decode() + "\";\n}"
     fid.write(content)
     fid.close()
+
+# %%
