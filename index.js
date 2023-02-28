@@ -20,7 +20,7 @@ function is_password_correct(password)
     var salt = "at4n8k$m§l!";
     var expectedHash = "0e1e09fad35750abcf31aff6e074c76ae7c58b4632a30eaa93019a8916fdac1d";
     var actualHash = CryptoJS.SHA256(password + salt).toString();
-    
+
     return actualHash === expectedHash;
 }
 
@@ -58,7 +58,7 @@ function set_password_cookie(password)
     var date = new Date();
     date.setTime(date.getTime() + (366 * 24 * 60 * 60 * 1000));
     var expires = ";path=/;expires="+ date.toUTCString();
-    var cookie = password + expires; 
+    var cookie = password + expires;
     console.log("set cookie: " + cookie);
     document.cookie = cookie;
 }
@@ -77,11 +77,11 @@ function check_person_count()
     var personMinimum = [1,                   0,                     0                  ];
     try
     {
-        for (index = 0; index < personCounts.length; index++) 
+        for (index = 0; index < personCounts.length; index++)
         {
             var valueAsString = document.getElementById(personCounts[index]).value;
-            if((valueAsString.trim().length === 0) || 
-               (!Number.isInteger(Number(valueAsString))) || 
+            if((valueAsString.trim().length === 0) ||
+               (!Number.isInteger(Number(valueAsString))) ||
                (parseInt(valueAsString, 10) < personMinimum[index]))
             {
                 console.log("invalid number in field " + personCounts[index] + ": " + valueAsString);
@@ -101,7 +101,7 @@ function check_person_count()
 function check_family_name()
 {
     var family = document.getElementById("guest-info-family").value;
-    
+
     return (family && !(family.trim().length === 0))
 }
 
@@ -110,7 +110,7 @@ function get_address()
     return document.getElementById("mail-address").innerHTML;
 }
 
-function submit_guest_info() 
+function submit_guest_info()
 {
     if(check_family_name() && check_person_count())
     {
@@ -118,13 +118,13 @@ function submit_guest_info()
         var adults   = document.getElementById("guest-info-adults").value;
         var children = document.getElementById("guest-info-children").value;
         var babies   = document.getElementById("guest-info-babies").value;
-    
+
         var text = "Anmeldung zu eurer Hochzeit\n\n";
         text += "Wer sind wir: " + family + "\n";
         text += adults   + " Erwachsene\n";
         text += children + " Kinder\n";
         text += babies   + " Kleinkinder\n";
-    
+
         var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURIComponent(text);
         window.location.href = mailto;
     }
@@ -135,10 +135,10 @@ function decline()
     if(check_family_name())
     {
         var family = document.getElementById("guest-info-family").value;
-    
+
         var text = "Wir können leider nicht zu eurer Hochzeit kommen.\n\n";
         text += "Wer sind wir: " + family + "\n";
-    
+
         var mailto = "mailto:" + get_address() + "?subject=" + "Hochzeit" + "&body=" + encodeURIComponent(text);
         window.location.href = mailto;
     }
@@ -146,14 +146,14 @@ function decline()
 
 function on_page_decrypted()
 {
-    var x = setInterval(function() 
+    var x = setInterval(function()
     {
-        var countDownDate = new Date(2021, 4, 22, 13, 0).getTime();
+        var countDownDate = new Date(2023, 7, 5, 11, 0).getTime();
 
         var now = new Date().getTime();
         var distance = countDownDate - now;
 
-        if (distance < 0) 
+        if (distance < 0)
         {
             clearInterval(x);
             document.getElementById("countdown-timer").innerHTML = "";
@@ -170,7 +170,7 @@ function on_page_decrypted()
             var minute_text = minutes === 1 ? "Minute"  : "Minuten";
             var second_text = seconds === 1 ? "Sekunde" : "Sekunden";
 
-            document.getElementById("countdown-timer").innerHTML = 
+            document.getElementById("countdown-timer").innerHTML =
                 "Noch " +
                 days    + "&nbsp;" + day_text    + ", " +
                 hours   + "&nbsp;" + hour_text   + ", " +

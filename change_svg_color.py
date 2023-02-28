@@ -12,7 +12,7 @@ import os
 # In[]
 def find_input_svg_files():
     glob_path = os.path.abspath(os.path.join("img", "icon_*.svg"))
-    input_svg_paths = glob.glob(glob_path) 
+    input_svg_paths = glob.glob(glob_path)
     return [path for path in input_svg_paths if not "colored" in path]
 
 
@@ -36,7 +36,7 @@ def get_svg_output_path(input_svg_path):
     output_svg_path = input_svg_path.replace(".svg", "_colored.svg")
     print(output_svg_path)
     return output_svg_path
-    
+
 
 # In[]
 def read_svg_file(input_svg_path):
@@ -51,19 +51,19 @@ def write_svg_file(output_svg_path, svg_content):
     fid = open(output_svg_path, "w")
     fid.write(svg_content)
     fid.close()
-    
-    
+
+
 # In[]
 if __name__ == "__main__":
 
-###############################################################################    
+###############################################################################
     new_color = [56, 112, 37]
 ###############################################################################
-        
+
     for input_svg_path in find_input_svg_files():
-        
+
         svg_content = read_svg_file(input_svg_path)
         colored_svg_content = change_svg_color(svg_content, new_color)
-        
+
         output_svg_path = get_svg_output_path(input_svg_path)
         write_svg_file(output_svg_path, colored_svg_content)

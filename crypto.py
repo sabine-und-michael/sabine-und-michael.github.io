@@ -55,7 +55,7 @@ def _extract_data(encrypted):
     return decoded[16:]
 
 def _remove_padding(data):
-    padding_length = data[-1] 
+    padding_length = data[-1]
     if not isinstance(padding_length, int):
         padding_length = ord(padding_length)
     return data[0:-padding_length]
@@ -70,7 +70,7 @@ def _create_aes_instance(password, salt):
 def _get_key(password, salt):
     key = _convert_password_to_key(password, salt)
     return key[0:32]
-    
+
 def _get_iv(password, salt):
     key = _convert_password_to_key(password, salt)
     return key[32:48]
@@ -94,25 +94,25 @@ def _get_md5_hash(data):
 This script supports having an unencrypted copy of the homepage that is used for
 development. You can there use the two marks "@@start@@" and "@@end@@" to indicate
 the secret html code, that should be encrypted. The encrypted code will be saved
-as part of a javascript file with the single method "get_content", returning the 
-encrypted html code. 
+as part of a javascript file with the single method "get_content", returning the
+encrypted html code.
 Please adjust the paths below as needed!
 """
 
 if __name__ == "__main__":
-    
-    
+
+
 ###############################################################################
-    import crypto_config    
+    import crypto_config
     path_to_input_file  = crypto_config.path_to_input_file
     path_to_output_file = crypto_config.path_to_output_file
     password            = crypto_config.password
 ###############################################################################
-    
+
     fid = open(path_to_input_file, encoding="utf-8")
     content = fid.readlines()
     fid.close()
-    
+
     start = 0
     end = 0
     for index in range(len(content)):
@@ -121,7 +121,7 @@ if __name__ == "__main__":
             start = index + 1
         if "@@end@@" in line:
             end = index
-            
+
     page_content = "\n".join(content[start:end]).encode()
     encrypted_page = encrypt(page_content, password)
     fid = open(path_to_output_file, "w")

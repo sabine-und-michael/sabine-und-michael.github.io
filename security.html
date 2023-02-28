@@ -3,12 +3,12 @@
     <head>
         <title>Security</title>
         <meta charset="utf-8">
-        
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha256.js"></script>
-        
+
         <script>
-            function encrypt() 
+            function encrypt()
             {
                 var password      = document.getElementById("password").value;
                 var password_salt = document.getElementById("password-salt").value;
@@ -22,7 +22,7 @@
                 document.getElementById("encrypted-secret").innerHTML = encrypted;
             }
 
-            function decrypt() 
+            function decrypt()
             {
                 var password  = document.getElementById("password-for-decryption").value;
                 var encrypted = document.getElementById("encrypted").value;
@@ -56,13 +56,13 @@
                     </tr>
                 </table>
             </form>
-            
+
             <br>
             <button onclick="encrypt()">Encrypt</button>
             <br>
             <hr>
 
-            <b>Salted + Hashed Password:</b> 
+            <b>Salted + Hashed Password:</b>
             <div style='word-break: break-all; word-wrap: break-word;' id="hashed-password">-</div>
             <br>
             <b>Salted + Encrypted Secret:</b>
@@ -74,7 +74,7 @@
 
         <section style='background-color: lightcoral; padding: 20px;'>
             <hr>
-            
+
             <form>
                 <table>
                     <tr>
@@ -87,7 +87,7 @@
                     </tr>
                 </table>
             </form>
-            
+
             <br>
             <button onclick="decrypt()">Decrypt</button>
             <br>
